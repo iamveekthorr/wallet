@@ -39,7 +39,7 @@ class ErrorService {
       stack: err.stack,
     });
 
-    console.error(`[errorController.js] (line 45) - ${err.message}`);
+    console.error(`[errorController.js] (line 42) - ${err.message}`);
   };
 
   private sendErrorProd = (

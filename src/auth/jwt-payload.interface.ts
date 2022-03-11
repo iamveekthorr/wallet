@@ -1,5 +1,8 @@
-import AuthCredentialsDTO from './dto/auth-credentials.dto';
+import AuthRoles from './auth-roles.enum';
 
-interface JWTPayload extends AuthCredentialsDTO {}
+interface JWTPayload {
+  role: AuthRoles;
+  email: string;
+}
 
 export default JWTPayload;

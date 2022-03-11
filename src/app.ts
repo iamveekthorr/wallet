@@ -10,6 +10,7 @@ import ErrorService from './common/error.service';
 class App {
   private app: Application;
 
+  // The routes array will keep track of our routes files for debugging purposes
   public routes: Array<RoutesConfig> = [];
 
   constructor() {
@@ -28,8 +29,6 @@ class App {
     this.app.enable('trust proxy');
 
     this.app.use(cors({ origin: true, credentials: true }));
-
-    // The routes array will keep track of our routes files for debugging purposes
 
     const loggerOptions: LoggerOptions = {
       transports: [new winston.transports.Console()],
@@ -55,8 +54,6 @@ class App {
 
   private initializeRoutes(): void {
     this.routes.push(new AuthRoutes(this.app));
-    this.routes.forEach((route) => console.log(route.getRouteName(), 'routes'));
-    console.log('routes initializes');
   }
 }
 
