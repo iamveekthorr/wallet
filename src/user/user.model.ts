@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import mongooseService from '../common/mongoose.service';
-import AuthRoles from './auth-roles.enum';
-import AuthCredentialsDTO from './dto/auth-credentials.dto';
+import AuthRoles from '../auth/auth-roles.enum';
+import AuthCredentialsDTO from '../auth/dto/auth-credentials.dto';
 
 class UserModel {
   private Schema = mongooseService.getMongoose().Schema;
@@ -31,9 +31,9 @@ class UserModel {
       select: false,
     },
     email: {
-      unique: true,
       type: String,
       required: [true, 'email is required'],
+      unique: true,
       trim: true,
     },
   });

@@ -22,6 +22,7 @@
     "comma-dangle": "off",
     "class-methods-use-this": "off",
     "import/extensions": "off",
-    "object-shorthand": "off"
+    "object-shorthand": "off",
+    "no-unused-vars": "warn"
   }
 }

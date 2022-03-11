@@ -32,8 +32,6 @@ class ErrorService {
   };
 
   private sendErrorDev = (err: AppError, req: Request, res: Response): void => {
-    console.log(req.originalUrl);
-    console.log(err);
     res.status(err.statusCode).json({
       status: err.status,
       error: err,

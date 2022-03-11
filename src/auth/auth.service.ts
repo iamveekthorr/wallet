@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import CookieOptions from './cookie-options.interface';
 import AuthCredentialsDTO from './dto/auth-credentials.dto';
 import JWTStrategy from './jwt-strategy';
-import UserModel from './user.model';
+import UserModel from '../user/user.model';
 
 class AuthService {
   public signIn = async (
