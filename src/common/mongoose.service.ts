@@ -1,13 +1,11 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: '.env.local' });
+import envConfig from '../util/environment.config';
 
 class MongooseService {
-  private DB = process.env.DATABASE!;
+  private DB = envConfig.DATABASE!;
 
   private replacePassword(connection: string): string {
-    return connection.replace('<PASSWORD>', process.env.DATABASE_PASSWORD!);
+    return connection.replace('<PASSWORD>', envConfig.DATABASE_PASSWORD!);
   }
 
   constructor() {

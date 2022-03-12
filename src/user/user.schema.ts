@@ -73,6 +73,14 @@ class UserModel {
     return user;
   }
 
+  public async getUserById(id: string) {
+    return this.User.findById(id);
+  }
+
+  public async getAllUsers(): Promise<UserDTO[]> {
+    return this.User.find();
+  }
+
   public async validatePassword(
     enteredPassword: string,
     candidatePassword: string

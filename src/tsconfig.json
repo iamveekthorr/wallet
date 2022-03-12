@@ -9,7 +9,8 @@
     "strict": true,
     "esModuleInterop": true,
     "inlineSourceMap": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "typeRoots": ["@types", "./node_modules/@types"]
   },
   "include": ["../src/**/*.ts"],
   "exclude": ["node_modules"]

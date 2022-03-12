@@ -23,6 +23,7 @@
     "class-methods-use-this": "off",
     "import/extensions": "off",
     "object-shorthand": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "prefer-destructuring": "off"
   }
 }

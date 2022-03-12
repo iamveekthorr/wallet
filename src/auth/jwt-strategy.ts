@@ -1,11 +1,18 @@
 import jwt from 'jsonwebtoken';
+import envConfig from '../util/environment.config';
 import JWTPayload from './jwt-payload.interface';
 
 class JWTStrategy {
-  public createJWT = (payload: JWTPayload): string =>
-    jwt.sign({ payload }, process.env.JWT_SECRET_KEY!, {
-      expiresIn: process.env.JWT_EXPIRES_IN!,
-    });
+  public createJWT = (payload: JWTPayload): string => {
+    const { id, email, role } = payload;
+    return jwt.sign(
+      { sub: id, email: email, role: role },
+      envConfig.JWT_SECRET_KEY!,
+      {
+        expiresIn: envConfig.JWT_EXPIRES_IN!,
+      }
+    );
+  };
 }
 
 export default new JWTStrategy();

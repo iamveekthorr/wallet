@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import AuthService from './auth.service';
-import catchAsyncHandler from '../common/async-handler.service';
+import AuthService from '../service/auth.service';
+import catchAsyncHandler from '../../common/async-handler.service';
 
 class AuthController {
   public signIn = catchAsyncHandler(
@@ -16,6 +16,9 @@ class AuthController {
       res.status(201).send();
     }
   );
+
+  public signOut = (req: Request, res: Response): void =>
+    AuthService.signOut(req, res);
 }
 
 export default new AuthController();

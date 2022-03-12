@@ -1,5 +1,12 @@
-// import User from '../dto/user.dto';
+import { NextFunction, Response, Request } from 'express';
+import UserService from '../service/user.service';
 
-class UserController {}
+class UserController {
+  public getAllUsers = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> => UserService.getAllUsers(req, res, next);
+}
 
-export default UserController;
+export default new UserController();

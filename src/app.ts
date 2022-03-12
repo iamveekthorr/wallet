@@ -1,11 +1,15 @@
-import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import { logger, LoggerOptions } from 'express-winston';
 import winston from 'winston';
-import RoutesConfig from './routes.config';
-import AuthRoutes from './auth/auth.routes';
+
 import AppError from './common/app-error.service';
 import ErrorService from './common/error.service';
+
+import RoutesConfig from './routes.config';
+import AuthRoutes from './auth/auth.routes';
+import UserRoutes from './user/user.routes';
 
 class App {
   private app: Application;
@@ -23,6 +27,15 @@ class App {
 
   public getApp() {
     return this.app;
+  }
+
+  private initializeRoutes(): void {
+    console.log('initialized routes');
+    this.routes.push(new AuthRoutes(this.app));
+    this.routes.push(new UserRoutes(this.app));
+    this.routes.forEach((route) =>
+      console.log(route.getRouteName(), 'route name')
+    );
   }
 
   private initializeMiddleware(): void {
@@ -43,6 +56,8 @@ class App {
 
     this.app.use(express.json({ limit: '10kb' }));
     this.app.use(express.urlencoded({ limit: '10kb', extended: true }));
+
+    this.app.use(cookieParser());
   }
 
   private initializeErrorHandler(): void {
@@ -50,10 +65,6 @@ class App {
       next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
     });
     this.app.use(new ErrorService().globalErrorHandler);
-  }
-
-  private initializeRoutes(): void {
-    this.routes.push(new AuthRoutes(this.app));
   }
 }
 

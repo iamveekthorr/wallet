@@ -1,15 +1,17 @@
 import { Application } from 'express';
 import RoutesConfig from '../routes.config';
-import AuthController from './auth.controller';
+import AuthController from './controller/auth.controller';
 import AuthMiddleware from './middleware/auth.middleware';
 
 class AuthRoutes extends RoutesConfig {
+  public app: Application;
+
   constructor(app: Application) {
     super(app, 'AuthRoutes');
     this.app = app;
   }
 
-  // implement the abstract method keep
+  // implement the abstract method
   public configureRoutes(): Application {
     this.app
       .route('/api/v1/auth/login')
@@ -18,6 +20,8 @@ class AuthRoutes extends RoutesConfig {
     this.app
       .route('/api/v1/auth/signup')
       .post(AuthMiddleware.validateSignUp, AuthController.signUp);
+
+    this.app.route('/api/v1/auth/logout').get(AuthController.signOut);
 
     return this.app;
   }
