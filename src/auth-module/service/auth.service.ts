@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import CookieOptions from '../cookie-options.interface';
+import CookieOptions from '../interfaces/cookie-options.interface';
 import AuthCredentialsDTO from '../dto/auth-credentials.dto';
 import JWTStrategy from '../jwt-strategy';
-import UserModel from '../../user/user.schema';
+import UserModel from '../../user-module/user.schema';
 import AppError from '../../common/app-error.service';
-import JWTPayload from '../jwt-payload.interface';
+import JWTPayload from '../interfaces/jwt-payload.interface';
 
 import envConfig from '../../util/environment.config';
 

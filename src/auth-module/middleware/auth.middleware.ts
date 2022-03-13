@@ -5,7 +5,7 @@ import AppError from '../../common/app-error.service';
 import catchAsyncHandler from '../../common/async-handler.service';
 import AuthCredentialsDTO from '../dto/auth-credentials.dto';
 import envConfig from '../../util/environment.config';
-import userSchema from '../../user/user.schema';
+import userSchema from '../../user-module/user.schema';
 import { JTWDecoded } from '../../util/jwt.decoded';
 
 const log: debug.IDebugger = debug('app:auth-controller');

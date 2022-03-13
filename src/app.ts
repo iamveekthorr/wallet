@@ -8,8 +8,8 @@ import AppError from './common/app-error.service';
 import ErrorService from './common/error.service';
 
 import RoutesConfig from './routes.config';
-import AuthRoutes from './auth/auth.routes';
-import UserRoutes from './user/user.routes';
+import AuthRoutes from './auth-module/auth.routes';
+import UserRoutes from './user-module/user.routes';
 
 class App {
   private app: Application;
@@ -30,12 +30,8 @@ class App {
   }
 
   private initializeRoutes(): void {
-    console.log('initialized routes');
     this.routes.push(new AuthRoutes(this.app));
     this.routes.push(new UserRoutes(this.app));
-    this.routes.forEach((route) =>
-      console.log(route.getRouteName(), 'route name')
-    );
   }
 
   private initializeMiddleware(): void {

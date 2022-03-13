@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import mongooseService from '../common/mongoose.service';
-import AuthRoles from '../auth/auth-roles.enum';
-import AuthCredentialsDTO from '../auth/dto/auth-credentials.dto';
+import AuthRoles from '../auth-module/auth-roles.enum';
+import AuthCredentialsDTO from '../auth-module/dto/auth-credentials.dto';
 import UserDTO from './dto/user.dto';
 import AppError from '../common/app-error.service';
 

@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import authMiddleware from '../auth/middleware/auth.middleware';
+import authMiddleware from '../auth-module/middleware/auth.middleware';
 import RoutesConfig from '../routes.config';
 import userController from './controller/user.controller';
 

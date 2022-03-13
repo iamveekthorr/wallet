@@ -1,4 +1,4 @@
-import AuthRoles from '../auth/auth-roles.enum';
+import AuthRoles from '../auth-module/auth-roles.enum';
 
 export type JTWDecoded = {
   sub: string;
