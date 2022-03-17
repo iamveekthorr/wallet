@@ -74,7 +74,7 @@ class UserModel {
   }
 
   public async getUserById(id: string) {
-    return this.User.findById(id);
+    return this.User.findById(id, { password: 0 });
   }
 
   public async getAllUsers(): Promise<UserDTO[]> {

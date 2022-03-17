@@ -4,4 +4,5 @@ export type JTWDecoded = {
   sub: string;
   email: string;
   role: AuthRoles;
+  exp?: number;
 };

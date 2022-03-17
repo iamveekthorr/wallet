@@ -4,11 +4,12 @@ import userSchema from '../user.schema';
 
 class UserService {
   public getAllUsers = catchAsyncHandler(
-    async (req: Request, res: Response, _next: NextFunction): Promise<void> => {
+    async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       const users = await userSchema.getAllUsers();
       res.status(200).json({
         users,
       });
+      next();
     }
   );
 }

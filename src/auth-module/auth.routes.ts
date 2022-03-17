@@ -23,6 +23,8 @@ class AuthRoutes extends RoutesConfig {
 
     this.app.route('/api/v1/auth/logout').get(AuthController.signOut);
 
+    this.app.get('/api/v1/auth/check-session', AuthMiddleware.checkJWTExpired);
+
     return this.app;
   }
 }

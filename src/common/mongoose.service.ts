@@ -1,15 +1,17 @@
+import debug from 'debug';
 import mongoose from 'mongoose';
 import envConfig from '../util/environment.config';
 
+const log: debug.IDebugger = debug('app:mongoose-service');
 class MongooseService {
   private DB = envConfig.DATABASE!;
 
-  private replacePassword(connection: string): string {
-    return connection.replace('<PASSWORD>', envConfig.DATABASE_PASSWORD!);
-  }
-
   constructor() {
     this.connect();
+  }
+
+  private replacePassword(connection: string): string {
+    return connection.replace('<PASSWORD>', envConfig.DATABASE_PASSWORD!);
   }
 
   private connect(): void {
@@ -17,9 +19,9 @@ class MongooseService {
 
     mongoose
       .connect(connection)
-      .then(() => console.log('connected'))
+      .then(() => log('connected'))
       .catch((err) => {
-        console.log(err);
+        log(err);
       });
   }
 

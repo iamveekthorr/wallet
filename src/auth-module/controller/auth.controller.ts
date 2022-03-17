@@ -4,9 +4,8 @@ import catchAsyncHandler from '../../common/async-handler.service';
 
 class AuthController {
   public signIn = catchAsyncHandler(
-    async (req: Request, res: Response, _next: NextFunction): Promise<void> => {
-      const user = await AuthService.signIn(req.body, req, res);
-      res.status(200).json({ token: user });
+    async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+      AuthService.signIn(req.body, req, res, next);
     }
   );
 

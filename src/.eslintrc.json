@@ -24,6 +24,7 @@
     "import/extensions": "off",
     "object-shorthand": "off",
     "no-unused-vars": "warn",
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "consistent-return": "off"
   }
 }

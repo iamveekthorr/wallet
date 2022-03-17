@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import envConfig from '../util/environment.config';
-import JWTPayload from './jwt-payload.interface';
+import JWTPayload from './interfaces/jwt-payload.interface';
 
 class JWTStrategy {
   public createJWT = (payload: JWTPayload): string => {
