@@ -9,12 +9,9 @@ class AuthController {
     }
   );
 
-  public signUp = catchAsyncHandler(
-    async (req: Request, res: Response, _next: NextFunction): Promise<void> => {
-      await AuthService.signUp(req.body);
-      res.status(201).send();
-    }
-  );
+  public signUp = catchAsyncHandler(async (req: Request): Promise<void> => {
+    await AuthService.signUp(req.body);
+  });
 
   public signOut = (req: Request, res: Response): void =>
     AuthService.signOut(req, res);

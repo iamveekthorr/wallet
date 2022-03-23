@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import envConfig from '../util/environment.config';
-import JWTPayload from './interfaces/jwt-payload.interface';
+import JWTPayloadDTO from './dto/jwt-payload.dto';
 
 class JWTStrategy {
-  public createJWT = (payload: JWTPayload): string => {
+  public createJWT = (payload: JWTPayloadDTO): string => {
     const { id, email, role } = payload;
     return jwt.sign(
       { sub: id, email: email, role: role },
