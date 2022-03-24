@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 
-import envConfig from '../../util/environment.config';
+import envConfig from '../util/environment.config';
 
-import { JTWDecoded } from '../../util/jwt.decoded';
+import { JTWDecoded } from '../util/jwt.decoded';
 
 class DecodeJWTMiddleware {
   public static decodeJWT = (token: string): JTWDecoded =>

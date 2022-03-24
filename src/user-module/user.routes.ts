@@ -1,7 +1,7 @@
 import { Application } from 'express';
 
-import ProtectRoutes from '../auth-module/middleware/protect.middleware';
 import RoutesConfig from '../routes.config';
+import ProtectRoutes from '../middleware/protect.middleware';
 import userController from './controller/user.controller';
 
 class UserRoutes extends RoutesConfig {

@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
-import AppError from '../../common/app-error.service';
-import catchAsyncHandler from '../../common/async-handler.service';
-import userSchema from '../../user-module/user.schema';
+
+import AppError from '../common/app-error.service';
+import catchAsyncHandler from '../common/async-handler.service';
+import userSchema from '../user-module/user.schema';
 import DecodeJWTMiddleware from './decodeJWT.middleware';
 
 class ProtectRoutes {

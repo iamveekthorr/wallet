@@ -1,12 +1,8 @@
-import debug from 'debug';
-
 import { NextFunction, Request, Response } from 'express';
 
-import AppError from '../../common/app-error.service';
-import catchAsyncHandler from '../../common/async-handler.service';
-import AuthCredentialsDTO from '../dto/auth-credentials.dto';
-
-const log: debug.IDebugger = debug('app:auth-controller');
+import AppError from '../common/app-error.service';
+import catchAsyncHandler from '../common/async-handler.service';
+import AuthCredentialsDTO from '../auth-module/dto/auth-credentials.dto';
 
 class ValidateSignUpBody {
   public static validateSignUp = catchAsyncHandler(
@@ -20,7 +16,6 @@ class ValidateSignUpBody {
         firstName.trim() &&
         lastName.trim()
       ) {
-        log(email, password, firstName, lastName);
         return next();
       }
       return next(new AppError('missing fields', 400));

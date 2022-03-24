@@ -2,9 +2,9 @@ import debug from 'debug';
 
 import { NextFunction, Request, Response } from 'express';
 
-import AppError from '../../common/app-error.service';
-import catchAsyncHandler from '../../common/async-handler.service';
-import AuthCredentialsDTO from '../dto/auth-credentials.dto';
+import AppError from '../common/app-error.service';
+import catchAsyncHandler from '../common/async-handler.service';
+import AuthCredentialsDTO from '../auth-module/dto/auth-credentials.dto';
 
 const log: debug.IDebugger = debug('app:auth-controller');
 

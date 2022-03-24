@@ -2,9 +2,9 @@ import { Application } from 'express';
 
 import RoutesConfig from '../routes.config';
 import AuthController from './controller/auth.controller';
-import ValidateSignInBody from './middleware/validate-signin.middleware';
-import ValidateSignUpBody from './middleware/validate-signup.middleware';
-import VerifyJWTExpired from './middleware/verifyJWTExpired.middleware';
+import ValidateSignInBody from '../middleware/validate-signin.middleware';
+import ValidateSignUpBody from '../middleware/validate-signup.middleware';
+import VerifyJWTExpired from '../middleware/verifyJWTExpired.middleware';
 
 class AuthRoutes extends RoutesConfig {
   public app: Application;
