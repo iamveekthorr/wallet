@@ -6,7 +6,7 @@ import AppError from '../common/app-error.service';
 import catchAsyncHandler from '../common/async-handler.service';
 import AuthCredentialsDTO from '../auth-module/dto/auth-credentials.dto';
 
-const log: debug.IDebugger = debug('app:auth-controller');
+const log: debug.IDebugger = debug('app:middleware-validate-signin');
 
 class ValidateSignInBody {
   public static validateSignIn = catchAsyncHandler(
